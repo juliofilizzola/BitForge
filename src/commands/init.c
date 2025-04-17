@@ -55,7 +55,6 @@ void init_files()
                     "\tname = Default User\n"
                     "\temail = user@example.com\n");
     fclose(config);
-
 }
 
 int init_bit_forge()
