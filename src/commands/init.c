@@ -7,7 +7,7 @@
 #include <string.h>
 #include <sys/stat.h>
 
-int init_bit_forge()
+int init_dirs()
 {
     int status;
     status = mkdir(".bitForge", 0755);
@@ -26,6 +26,11 @@ int init_bit_forge()
         return 1;
     }
 
+    return 0;
+}
+
+void init_files()
+{
     FILE *head = fopen(".git/HEAD", "w");
     if (!head)
     {
@@ -51,6 +56,12 @@ int init_bit_forge()
                     "\temail = user@example.com\n");
     fclose(config);
 
+}
+
+int init_bit_forge()
+{
+    init_dirs();
+    init_files();
     printf("Repositório BitForge inicializado com sucesso!\n");
     return 0;
 }
