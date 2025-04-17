@@ -30,8 +30,25 @@ int init_bit_forge() {
         return 1;
     }
 
-    fputs("ref: refs/heads/master\n", head);
+    fputs("ref: refs/heads/main\n", head);
     fclose(head);
+
+
+ 	FILE *config = fopen(".git/config", "w");
+    if (!config) {
+        perror("Erro ao criar .git/config");
+        return 1;
+    }
+    fprintf(config,
+        "[core]\n"
+        "\trepositoryformatversion = 0\n"
+        "\tfilemode = true\n"
+        "\tbare = false\n"
+        "[user]\n"
+        "\tname = Default User\n"
+        "\temail = user@example.com\n"
+    );
+    fclose(config);
 
     printf("Repositório BitForge inicializado com sucesso!\n");
     return 0;
