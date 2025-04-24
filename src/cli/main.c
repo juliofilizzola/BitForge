@@ -2,8 +2,9 @@
 // Created by julio-filizzola on 17/04/25.
 //
 
-#include "include/cli/main.h"
-#include "include/commands/init.h"
+#include "../../include/cli/main.h"
+#include "../../include/commands/init.h"
+#include "../../include/config/config.h"
 #include <stdio.h>
 #include <string.h>
 
