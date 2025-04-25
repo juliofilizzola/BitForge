@@ -1,7 +1,13 @@
 //
 // Created by julio-filizzola on 24/04/25.
 //
-#include "include/config/config.h"
+#include "../../include/config/config.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/stat.h>
 
 
 #define CONFIG_FILE ".bitForge/config"
