@@ -5,6 +5,9 @@
 #include "../../include/cli/main.h"
 #include "../../include/commands/init.h"
 #include "../../include/config/config.h"
+// TODO: validar como funciona no windows e no ubuntu
+
+
 #include <stdio.h>
 #include <string.h>
 
