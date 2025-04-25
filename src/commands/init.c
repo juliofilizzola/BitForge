@@ -1,6 +1,7 @@
 //
 // Created by julio-filizzola on 17/04/25.
 //
+
 #include "include/commands/init.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,12 +14,14 @@ int init_dirs()
     status = mkdir(".bitForge", 0755);
     if (status != 0)
     {
+
         perror("Error creating directory .bitForge");
         return 1;
     }
 
     status = mkdir(".bitForge/objects", 0755);
     status |= mkdir(".bitForge/refs", 0755);
+
 
     if (status != 0)
     {
@@ -33,7 +36,7 @@ void init_files()
 {
     FILE *head = fopen(".git/HEAD", "w");
     if (!head)
-    {
+   
         perror("Erro ao criar arquivo .git/HEAD");
         return 1;
     }
