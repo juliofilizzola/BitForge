@@ -5,6 +5,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-int run(int argc, char *argv[]);
+int init_bit_forge();
+int main(int argc, char *argv[]);
 
 #endif

@@ -7,4 +7,4 @@
 
 int init_bit_forge();
 
-#endif // INIT_H
+#endif

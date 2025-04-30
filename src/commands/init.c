@@ -2,16 +2,13 @@
 // Created by julio-filizzola on 17/04/25.
 //
 
-#include "include/commands/init.h"
+#include "../../include/commands/init.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include <sys/stat.h>
 
 int init_dirs()
 {
-    int status;
-    status = mkdir(".bitForge", 0755);
+    int status = mkdir(".bitForge", 0755);
     if (status != 0)
     {
 
@@ -32,32 +29,28 @@ int init_dirs()
     return 0;
 }
 
-void init_files()
+int init_files()
 {
-    FILE *head = fopen(".git/HEAD", "w");
-    if (!head)
-   
-        perror("Erro ao criar arquivo .git/HEAD");
-        return 1;
-    }
-
-    fputs("ref: refs/heads/main\n", head);
-    fclose(head);
-
-    FILE *config = fopen(".git/config", "w");
-    if (!config)
+    FILE *file = fopen(".bitForge/HEAD", "w");
+    if (!file)
     {
-        perror("Erro ao criar .git/config");
+        perror("Error creating .bitForge/HEAD file");
         return 1;
     }
-    fprintf(config, "[core]\n"
-                    "\trepositoryformatversion = 0\n"
-                    "\tfilemode = true\n"
-                    "\tbare = false\n"
-                    "[user]\n"
-                    "\tname = Default User\n"
-                    "\temail = user@example.com\n");
-    fclose(config);
+    fprintf(file, "ref: refs/heads/main\n");
+    fclose(file);
+
+    file = fopen(".bitForge/config", "w");
+    if (!file)
+    {
+        perror("Error creating .bitForge/config file");
+        return 1;
+    }
+    fprintf(file, "[core]\n\trepositoryformatversion = 0\n");
+    fclose(file);
+
+    return 0;
+
 }
 
 int init_bit_forge()
