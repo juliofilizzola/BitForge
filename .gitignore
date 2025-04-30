@@ -8,6 +8,7 @@
 *.ko
 *.obj
 *.elf
+.bitForge
 
 # Linker output
 *.ilk
