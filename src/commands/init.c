@@ -2,12 +2,8 @@
 // Created by julio-filizzola on 17/04/25.
 //
 
-#include "include/commands/init.h"
-#include "include/config/config.h"
-#include "include/commands/init.h"
+#include "../../include/commands/init.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include <sys/stat.h>
 
 int init_dirs()

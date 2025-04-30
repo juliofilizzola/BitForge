@@ -5,6 +5,6 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-int run(int argc, char *argv[]);
+int main(int argc, char *argv[]);
 
 #endif

@@ -5,6 +5,6 @@
 #ifndef INIT_H
 #define INIT_H
 
-int init_bit_forge();
+int init_bit_forge(void);
 
 #endif // INIT_H
