@@ -76,6 +76,28 @@ int update_global_config(const char *key, const char *value) {
     return 0;
 }
 
+int get_global_config_value(const char *key, char *value) {
+    char path[512];
+    get_config_path(path, sizeof(path));
+
+    FILE *file = fopen(path, "r");
+    if (!file) {
+        perror("Error opening global config file");
+        return 1;
+    }
+
+    char buffer[1024];
+    while (fgets(buffer, sizeof(buffer), file)) {
+        if (strncmp(buffer, key, strlen(key)) == 0 && buffer[strlen(key)] == ' ') {
+            sscanf(buffer + strlen(key) + 1, "%s", value);
+            fclose(file);
+            return 0;
+        }
+    }
+
+    fclose(file);
+    return 1;
+}
 
 int create_global_config() {
     char path[512];
@@ -92,4 +114,16 @@ int create_global_config() {
     );
     fclose(file);
     return 0;
+}
+
+
+int deleted_global_config() {
+    char path[512];
+    get_config_path(path, sizeof(path));
+    if (remove(path) == 0) {
+        printf("Configuração global deletada com sucesso.\n");
+        return 0;
+    }
+    perror("Erro ao deletar configuração global");
+    return 1;
 }
