@@ -55,6 +55,7 @@ int main(int argc, char* argv[]) {
     }
 
     if (strcmp(command, CMD_CONFIG) == 0) {
+        printf("argc = %d\n", argc);
         if (argc < 3) {
             print_error("Uso: bitforge config <global>");
             return ERROR_INVALID_ARGS;
