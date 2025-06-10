@@ -10,18 +10,21 @@
 #include <stdio.h>
 #include <string.h>
 
-const char* CMD_INIT = "init";
-const char* CMD_CONFIG = "config";
-const char* SUBCMD_GLOBAL = "global";
-const char* CMD_HELP = "help";
+const char *CMD_INIT = "init";
+const char *CMD_CONFIG = "config";
+const char *SUBCMD_GLOBAL = "global";
+const char *CMD_HELP = "help";
+const char *CMD_LOG = "log";
 
-enum ReturnCode {
+enum ReturnCode
+{
     SUCCESS = 0,
     ERROR_INVALID_ARGS = 1,
     ERROR_CONFIG_EXISTS = 2
 };
 
-void print_error(const char* message) {
+void print_error(const char *message)
+{
     fprintf(stderr, "Erro: %s\n", message);
 }
 
@@ -36,34 +39,42 @@ void print_usage()
     printf("  config  ->   Criar configuração do git\n");
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[] ){
 
-    if (argc < 2) {
-        print_usage();
+
+if (argc < 2) {
+
+      print_usage();
         return ERROR_INVALID_ARGS;
     }
 
-    const char* command = argv[1];
+    const char* command= argv[1];
 
     if (strcmp(command, CMD_INIT) == 0) {
-        return init_bit_forge();
+
+      return init_bit_forge();
     }
 
     if (strcmp(command, CMD_HELP) == 0) {
-        print_usage();
+
+      print_usage();
         return SUCCESS;
     }
 
     if (strcmp(command, CMD_CONFIG) == 0) {
-        printf("argc = %d\n", argc);
+
+      printf("argc = %d\n", argc);
         if (argc < 3) {
-            print_error("Uso: bitforge config <global>");
+
+              print_error("Uso: bitforge config <global>");
             return ERROR_INVALID_ARGS;
         }
 
         if (strcmp(argv[2], SUBCMD_GLOBAL) == 0) {
-            if (config_exists()) {
-                print_error("Configuração global já existe.");
+
+              if (config_exists()) {
+
+                      print_error("Configuração global já existe.");
                 return ERROR_CONFIG_EXISTS;
             }
             return create_global_config();
