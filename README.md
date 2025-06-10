@@ -27,10 +27,10 @@ Ele mostra como o Git funciona nos bastidores — criando blobs, commits e contr
 ## 🧠 Conceitos explorados
 
 - Estrutura interna do Git (`.git/objects`, `HEAD`, `refs`)
-- Hashing com SHA-1 (`openssl`)
-- Compressão de objetos (`zlib`)
-- Manipulação direta de arquivos binários
-- Design minimalista e performático
+- Hashing com SHA-1 (`openssl`) (pending)
+- Compressão de objetos (`zlib`) (pending)
+- Manipulação direta de arquivos binários (pending)
+- Design minimalista e performático (pending)
 
 ---
 
@@ -67,5 +67,3 @@ MIT. Faça o que quiser. Só não diga que foi fácil. 😄
 
 ## 👨‍💻 Autor
 Feito por alguém que curte C, versões, e um bom desafio.
-
-## 🤝 Contribuições
