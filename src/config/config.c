@@ -11,7 +11,7 @@
 
 #define CONFIG_FILE ".bitForge/config"
 
-static void get_config_path(char *path, size_t size)
+static void get_config_path(char *path, int size)
 {
     const char *home = getenv("HOME");
     if (!home)
