@@ -2,12 +2,13 @@
 # Prerequisites
 *.d
 .idea
-
+.fleet
 # Object files
 *.o
 *.ko
 *.obj
 *.elf
+.bitForge
 
 # Linker output
 *.ilk
